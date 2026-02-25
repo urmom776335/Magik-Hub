@@ -1,0 +1,209 @@
+/* ---------- BODY & BACKGROUND ---------- */
+body {
+    margin: 0;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: url("https://mmonster.co/media/59/31/41/1737968347/mmnstr-blog-rivals-magik-guide-ultrawide_%281%29.webp");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    overflow: hidden;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+
+    background: radial-gradient(
+        circle at center,
+        transparent 50%,
+        rgba(0, 0, 0, 0.75) 85%
+    );
+
+    animation: vignettePulse 5s ease-in-out infinite alternate;
+}
+
+@keyframes vignettePulse {
+    0%   { opacity: 0.6; }
+    100% { opacity: 0.8; }
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.2); /* lighter overlay to make particles pop */
+    z-index: -1;
+}
+
+/* ---------- TITLE ---------- */
+.title h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 60px;
+    letter-spacing: 15px;
+    top: 35px;
+    text-shadow: 5px 5px 10px #000000;
+    position: relative; 
+    z-index: 2;
+}
+
+/* ---------- PORTALS ---------- */
+.portal-wrapper {
+    position: absolute;
+}
+
+/* Portal design */
+.portal {
+    display: block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    line-height: 150px;
+    color: black;
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    text-shadow: 2.5px 2.5px 10px #000000;
+    font-weight: bold;
+    font-size: 25px;
+    cursor: pointer;
+    background: transparent; /* text stays on transparent portal container */
+    animation: float 3s ease-in-out infinite alternate; /* floating motion only */
+    will-change: transform;
+    z-index: 2;
+}
+
+/* Hover effect */
+.portal:hover {
+    animation-play-state: paused;
+    transform: scale(1.25);
+    box-shadow: 0 0 40px #d32f2f, 0 0 40px #ff7043, 0 0 40px #ffb347;
+}
+
+/* Pulsing energy ring */
+.portal::before {
+    content: '';
+    position: absolute;
+    inset: 0; /* fill entire portal */
+    border-radius: 50%;
+    background:
+    radial-gradient(circle at center,
+        #ffffff 0%,
+        #fff27f 20%,
+        #ffb347 40%,
+        #ff7043 60%,
+        #d32f2f 80%,
+        #8b0000 100%
+    );
+    box-shadow:
+        0 0 15px #fff27f,
+        0 0 30px #ffb347,
+        0 0 60px #ff7043,
+        0 0 100px #d32f2f;
+    z-index: -1;
+}
+
+/* Floating motion */
+@keyframes float {
+    0%   { transform: translate(-50%, -50%) translateY(0) translateX(0); }
+    25%  { transform: translate(-50%, -50%) translateY(-5px) translateX(2px); }
+    50%  { transform: translate(-50%, -50%) translateY(-10px) translateX(0); }
+    75%  { transform: translate(-50%, -50%) translateY(-5px) translateX(-2px); }
+    100% { transform: translate(-50%, -50%) translateY(0) translateX(0); }
+}
+
+
+/* Portal positions (Adjust if needed) */
+.origin {
+    top: 57%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+}
+
+.origin .portal { animation-duration: 2.8s; }
+
+.powers {
+    top: 70%;
+    left: 52.5%;
+    transform: translate(-50%, -50%);
+}
+
+.powers .portal { animation-duration: 3.2s; }
+
+.allies {
+    top: 57%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+}
+
+.allies .portal { animation-duration: 2.5s; }
+
+/* ---------- CREDITS ---------- */
+.credits {
+    position: absolute;
+    bottom: -2px;
+    width: 100%;
+    font-size: 20px;
+}
+
+/*--------PARTICLES--------*/
+.particles {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    bottom: 0;
+    border-radius: 50%;
+    opacity: 0.9;
+    background: radial-gradient(circle, #ffb347 20%, #ffa500 100%);
+    box-shadow: 0 0 15px #ff80ff, 0 0 30px #ffa500, 0 0 60px #aa00ff;
+    filter: blur(1.5px);
+    animation: rise calc(2s + var(--speed, 0s)) linear infinite;
+}
+
+.particle:nth-child(odd) {
+  filter: blur(2.5px);
+  opacity: 0.6;
+}
+
+.particle:nth-child(even) {
+  filter: blur(1px);
+  opacity: 0.9;
+}
+
+@keyframes rise {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.8;
+    }
+    25% {
+        transform: translate(calc(var(--sway)/2), calc(-25vh * var(--height, 1))) scale(0.9);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(var(--sway), calc(-50vh * var(--height, 1))) scale(1.1);
+        opacity: 1;
+    }
+    75% {
+        transform: translate(calc(var(--sway)/-2), calc(-75vh * var(--height, 1))) scale(0.8);
+        opacity: 0.6;
+    }
+    100% {
+        transform: translate(calc(var(--sway) * -1), calc(-100vh * var(--height, 1))) scale(0.5);
+        opacity: 0;
+    }
+}

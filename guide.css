@@ -1,0 +1,341 @@
+body {
+  margin: 0;
+  font-family: 'Cinzel', serif;
+  background: linear-gradient(135deg, #1a001a, #0d000d); /* dark gradient */
+  color: #fff8c0; /* light yellow text */
+  overflow-x: hidden;
+  text-align: center;
+}
+
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 100px 20px;
+  z-index: 1;
+}
+
+.hero img {
+  width: 250px;
+  border-radius: 100%;
+  box-shadow: 0 0 125px #ffb84d;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 50px #ffb84d;
+}
+
+.hero h1 {
+  margin: 20px 0 10px;
+  font-size: 2.5rem;
+  text-shadow: 0 0 10px #ffb84d;
+}
+
+/* --- Stats --- */
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 1.1rem;
+}
+
+.stats div:hover {
+  text-shadow: 0 0 15px #ffb84d;
+  cursor: default;
+}
+
+/* ============================= */
+/* MAIN LAYOUT */
+/* ============================= */
+
+.hero-layout {
+  display: flex;
+  max-width: 1100px;
+  margin: 40px auto;
+  background: #111;
+  border: 2px solid #ffb84d;
+  color: #fff8c0;
+  font-family: 'Cinzel', serif;
+}
+
+/* ============================= */
+/* SIDEBAR */
+/* ============================= */
+
+.sidebar {
+  flex: 0 0 35%;
+  display: flex;
+  flex-direction: column;
+  border-right: 2px solid #ffb84d;
+  background: linear-gradient(135deg, #140014, #0d000d);
+}
+
+/* ============================= */
+/* TAB BUTTON */
+/* ============================= */
+
+.tab {
+  display: grid;
+  grid-template-columns: 25% 25% 50%;
+  align-items: center;
+  width: 100%;
+  padding: 14px 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 184, 77, 0.15);
+  cursor: pointer;
+  color: #fff8c0;
+  background: linear-gradient(135deg, #140014, #0d000d);
+  font-size: 18px;
+  transition: all 0.25s ease;
+}
+
+/* Hover overlay: subtle over gradient */
+.tab:hover {
+  background: rgba(255, 184, 77, 0.05);  /* very light yellow tint */
+  color: #ffcc66;
+}
+
+/* Active overlay: slightly stronger but still see the gradient */
+.tab.active {
+  background: rgba(255, 184, 77, 0.08);  /* keeps gradient visible */
+  border-left: 4px solid #ffb84d;
+  font-weight: bold;
+}
+
+/* LEFT COLUMN */
+.tab-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.key-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+/* MIDDLE COLUMN */
+.tab-middle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tab-middle img {
+  height: 28px;
+}
+
+/* RIGHT COLUMN */
+.tab-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  white-space: nowrap;
+  padding: 0 10px;
+}
+
+/* ============================= */
+/* RIGHT CONTENT PANEL */
+/* ============================= */
+
+.content {
+  flex: 1;
+  padding: 15px;
+  background: linear-gradient(135deg, #140014, #0d000d);
+}
+
+/* Hide inactive panels */
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+  animation: fadeIn 0.25s ease forwards;
+}
+
+/* Ability Title + Underline */
+.description-alignment {
+    display: flex;
+    justify-content: space-between;  /* left flush, right flush */
+    align-items: center;             /* vertically center text */
+    border-bottom: 2px solid #ffb84d; /* underline across full width */
+    margin: 30px 0;                  /* vertical spacing from other elements */
+}
+
+.left-text {
+    text-align: left;
+}
+
+.right-text {
+    text-align: right;
+}
+
+/* ============================= */
+/* IMAGE BAR */
+/* ============================= */
+
+.image-bar {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  background: linear-gradient(135deg, #140014, #0d000d);
+  justify-content: center;
+}
+
+/* ============================= */
+/* DROPDOWN */
+/* ============================= */
+
+.image-dropdown {
+  position: relative;
+}
+
+.image-dropdown summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.image-dropdown summary::-webkit-details-marker {
+  display: none;
+}
+
+.image-dropdown img {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  border: 2px solid #ffb84d;
+  transition: all 0.25s ease;
+}
+
+/* Hover effect consistent with your tabs */
+.image-dropdown img:hover {
+  background: rgba(255, 184, 77, 0.05);
+  transform: scale(1.1);
+  border-color: #ffcc66;
+}
+
+/* ============================= */
+/* DROPDOWN CONTENT PANEL */
+/* ============================= */
+
+.dropdown-content {
+  margin-top: 12px;
+  padding: 15px;
+  width: 240px;
+  background: linear-gradient(135deg, #140014, #0d000d);
+  border: 2px solid #ffb84d;
+  color: #fff8c0;
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  box-shadow: 0 0 10px rgba(255, 184, 77, 0.15);
+}
+
+.dropdown-content img {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  border: 2px solid #ffb84d;
+  transition: all 0.25s ease;
+}
+
+/* Each subsection */
+.dropdown-section {
+  margin-bottom: 15px;
+}
+
+.dropdown-section h3 {
+  margin: 0 0 5px 0;
+  font-size: 22px;
+  color: #ffb84d;
+  border-bottom: 1px solid rgba(255, 184, 77, 0.3);
+  padding-bottom: 3px;
+}
+
+.dropdown-section p {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.4;
+  color: #fff8c0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+/* Subtle animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- CREDITS ---------- */
+.credits {
+  padding: 30px 0;
+  font-size: 0.9rem;
+  color: #fff8c0;
+  text-shadow: 0 0 5px #ffb84d;
+}
+
+/*--------PARTICLES--------*/
+.particles {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    bottom: 0;
+    border-radius: 50%;
+    opacity: 0.9;
+    background: radial-gradient(circle, #ffb347 20%, #ffa500 100%);
+    box-shadow: 0 0 15px #ff80ff, 0 0 30px #ffa500, 0 0 60px #aa00ff;
+    filter: blur(1.5px);
+    animation: rise calc(2s + var(--speed, 0s)) linear infinite;
+}
+
+.particle:nth-child(odd) {
+  filter: blur(2.5px);
+  opacity: 0.6;
+}
+
+.particle:nth-child(even) {
+  filter: blur(1px);
+  opacity: 0.9;
+}
+
+@keyframes rise {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.8;
+    }
+    25% {
+        transform: translate(calc(var(--sway)/2), calc(-25vh * var(--height, 1))) scale(0.9);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(var(--sway), calc(-50vh * var(--height, 1))) scale(1.1);
+        opacity: 1;
+    }
+    75% {
+        transform: translate(calc(var(--sway)/-2), calc(-75vh * var(--height, 1))) scale(0.8);
+        opacity: 0.6;
+    }
+    100% {
+        transform: translate(calc(var(--sway) * -1), calc(-100vh * var(--height, 1))) scale(0.5);
+        opacity: 0;
+    }
+}
